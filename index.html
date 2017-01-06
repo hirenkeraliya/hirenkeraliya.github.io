@@ -3,11 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="image/favicon.png">
-    <title>Hiren Keraliya - Home</title>
-    <link rel="stylesheet" href="css/style.css" media="screen">
-    <link href="//fonts.googleapis.com/css?family=Asap" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <title>Hiren Keraliya-Home</title>
 </head>
 <body>
     <div class="header-main">
@@ -22,7 +18,7 @@
                         </span>
                     </div>
                     <div class="col-xs-9 col-md-7 text-right">
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled wow rotateIn">
                             <li>
                                 <a href="index.html">HOME</a>
                                 <span></span>
@@ -47,7 +43,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row header-discription">
+                <div class="row header-discription wow rollIn">
                     <div class="col-xs-12 col-sm-7">
                         <span class="down-boxes"><h4>Hi !</h4></span>
                         <h3>PHP Web Developer</h3>
@@ -195,15 +191,65 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <link href="//fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+
     <script>
-      wow = new WOW(
-        {
-          animateClass: 'animated',
-          offset:       100,
+        var cssFiles = [{
+            type: "CDN",
+            src: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        }, {
+            type: "local",
+            src: "//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+        }, {
+            type: "local",
+            src: "css/style.css"
+        }];
+        var loadcssFiles = function() {
+            cssFiles.forEach(function(file) {
+                var style = document.createElement('link');
+                style.rel = 'stylesheet';
+                style.href = file.src;
+                if (file.type == 'CDN') {
+                    style.crossOrigin = "anonymous";
+                }
+                document.head.appendChild(style);
+            });
         }
-      );
-      wow.init();
+        var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) {
+            raf(loadcssFiles);
+        } else {
+            window.addEventListener('load', loadcssFiles);
+        }
+
+        // Load Javascript files
+        var jsFiles = [{
+            index: 1,
+            type: "CDN",
+            src: "https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+        }];
+        var loadjsFiles = new Promise(function(resolve, reject) {
+            var failed;
+            jsFiles.forEach(function(file) {
+                var script = document.createElement('script');
+                script.src = file.src;
+                script.onerror = function() {
+                    failed = true;
+                    reject(this);
+                }
+                script.async = false;
+                if (file.type == 'CDN') {
+                    script.crossOrigin = "anonymous";
+                }
+                document.head.appendChild(script);
+                script.onload = script.onreadystatechange = function() {
+                    if (!failed && (!this.readyState || this.readyState == "complete") && file.index == jsFiles.length ) {
+                        resolve(this);
+                    }
+                }
+            });
+        });
+          
     </script>
 </body>
 </html>
