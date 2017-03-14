@@ -4,16 +4,132 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="image/favicon.png">
     <title>Hiren Keraliya-Home</title>
-
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Asap" rel="stylesheet">
-    <link href='//fonts.googleapis.com/css?family=Dosis' rel='stylesheet'>
-
-    <link rel="stylesheet" type="text/css" href="css/style1.css" />
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css" media="screen">
     <style media="screen">
+    .logo:hover {
+        text-decoration: none;
+        cursor: crosshair;
+        color: #00a78e;
+    }
+    .logo {
+        font-family: 'Dancing Script', cursive;
+        font-size: 50px;
+        margin: 0 30px;
+        color: white;
+    }
+    .menu {
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+        height: 75px;
+        font-family: Dosis;
+        font-size: 18px;
+        background-color: rgba(23, 20, 20, 1);
+    }
+    .menu-list > li {
+        display: inline;
+        font-size: 1.3em;
+        position: relative
+    }
+    .menu-list > li > a {
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        padding: 10px
+    }
+    .menu-list > li > span {
+        display: block;
+        width: calc(100% - 23px);
+        font-family: Dosis;
+        height: 4px;
+        position: absolute;
+        left: 10px;
+        bottom: -10px
+    }
+    .menu-list > li > a:hover { color: #00a78e; }
+    .menu-list > li > a:hover ~ span {
+        animation: hiren .3s ease-in;
+        background: #00a78e;
+    }
+    .mobile-menu-icon > a:hover { color: #00a78e; }
+    .mobile-menu-icon > a {
+        padding-right: 15px;
+        color:white;
+    }
+    .mobile-menu-icon {
+        font-size: 42px;
+        padding-top: 8px;
+    }
+    .mobile-menu-list {
+        display: none;
+        background-color: rgba(23, 20, 20, 1);
+        list-style-type: none;
+    }
+    .mobile-menu-list > li {
+        padding: 20px;
+        font-size: 18px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    @keyframes hiren {
+        0% { width: 0 }
+        100% { width: calc(100% - 23px) }
+    }
+    @media only screen and (Min-width: 0px) and (max-width: 767px) {
+        .menu > div:nth-child(1) { display: none; }
+        .mobile-menu { display: block; }
+        .logo {
+            margin-top: 100px;
+            font-size: 30px;
+        }
+
+    }
+    @media only screen and (Min-width: 992px) {
+        .mobile-menu { display: none; }
+    }
+    @media only screen and (Min-width: 768px) and (max-width: 992px) {
+        .logo { font-size: 35px; }
+        .menu > div > ul > li { font-size: 1.2em; }
+        .mobile-menu { display: none; }
+        .img-rec { display: none; }
+        .paragraph {
+            font-size: 15px;
+            text-indent: 70px;
+        }
+
+    }
+    /*header section*/
+    .header-main {
+        background-image: url(image/1920-1280.jpg);
+        min-height: 700px;
+        background-size: cover;
+        background-position: center;
+    }
+    .header {
+        margin-top: 180px;
+        font-size: 55px;
+    }
+    .header > div { margin-bottom: 10px; }
+    .header > div > span {
+        color: black;
+        border-radius: 2px;
+        box-shadow: 10px 5px 5px black;
+        padding: 10px;
+        font-family: asap;
+    }
+    /*about section*/
+    .img-rec {
+        overflow: hidden;
+        background-size: cover;
+        background-position: top;
+        background-image: url('image/about-me.png');
+        height: inherit;
+    }
+    .about {
+        padding: 50px 0;
+        background-color: rgba(99, 99, 99, 0.19);
+    }
+
     .form-control {
         background-color: transparent;
         background-image: none;
@@ -642,142 +758,101 @@
             </div>
         </div>
     </div>
-    <!-- initialization jquery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- this is jquery plugin for sliding the page by menu -->
-    <script src="js/jquery.easing.min.js"></script>
-
-    <!-- that is use in gallary image plugin -->
-    <script src="js/gallery.min.js"></script>
-
-    <!-- it use in model  -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- whole google map with custom changes -->
-    <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVOCH_gvMX1XMl_8h54zkuk-2crMClVNg"></script>
-    <script src="js/customize-google-map.js" charset="utf-8"></script>
-
-    <script src="js/waterbubble.min.js"></script>
-    <script>
-    $('#photoshop').waterbubble({ radius: 70,data: 0.8,waterColor: '#00a78e', textColor: 'black', txt: '80%', });
-    $('#html5').waterbubble({ radius: 70,data: 0.98,waterColor: '#00a78e', textColor: 'black', txt: '98%', });
-    $('#css3').waterbubble({ radius: 70,data: 0.98,waterColor: '#00a78e', textColor: 'black', txt: '98%', });
-    $('#php').waterbubble({ radius: 70,data: 0.8,waterColor: '#00a78e', textColor: 'black', txt: '80%', });
-    $('#photography').waterbubble({ radius: 70,data: 1,waterColor: '#00a78e', textColor: 'black', txt: '100%', });
-    $('#team-work').waterbubble({ radius: 70,data: 0.6,waterColor: '#00a78e', textColor: 'black', txt: '60%', });
-    </script>
-    <!-- customization for the menu and page sliding -->
     <script type="text/javascript">
-    // it has used to the fixed menu at the top and slide to the anchor tag
-    $(window).scroll(function() {
-        if ($(".menu").offset().top > 50) {
-            $(".navbar-fixed-top").addClass("top-nav-collapse");
-        } else {
-            $(".navbar-fixed-top").removeClass("top-nav-collapse");
-        }
-    });
-    $(function() {
-        $('a.page-scroll').bind('click', function(event) {
-            console.log("s");
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top
-            }, 2500, 'easeInOutExpo');
-            event.preventDefault();
+    var cssFiles = [{
+        type: "CDN",
+        src: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    }, {
+        type: "CDN",
+        src: "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    }, {
+        type: "CDN",
+        src: "//fonts.googleapis.com/css?family=Dancing+Script"
+    }, {
+        type: "CDN",
+        src: "//fonts.googleapis.com/css?family=Asap"
+    }, {
+        type: "CDN",
+        src: "//fonts.googleapis.com/css?family=Dosis"
+    }, {
+        type: "local",
+        src: "css/style1.css"
+    }, {
+        type: "local",
+        src: "css/style.css"
+    }];
+    var loadcssFiles = function() {
+        cssFiles.forEach(function(file) {
+            var style = document.createElement('link');
+            style.rel = 'stylesheet';
+            style.href = file.src;
+            if (file.type == 'CDN') {
+                style.integrity = file.integrity;
+                style.crossOrigin = "anonymous";
+            }
+            document.head.appendChild(style);
         });
-
-    });
-
-    // in the mobile screen that is toggle hide and show the menu
-    function showMobileMenu() {
-        $(".mobile-menu-list").toggle();
     }
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function()
-        {
-            $(".name").keypress(function(event){
-                var inputValue = event.charCode;
-                if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) {
-                    event.preventDefault();
-                }
-            });
-            $(".number").keypress(function (e) {
-                if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-                    return false;
-                }
-            });
-            $("#contact-form").submit(function(event) {
-                event.preventDefault();
-                $('.contact-loader').show();
-                $('#contact-form').hide();
+    var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) {
+        raf(loadcssFiles);
+    } else {
+        window.addEventListener('load', loadcssFiles);
+    }
 
-                var name = $('#contact-form input.name').val();
-                var email = $('#contact-form input.email').val();
-                var number = $('#contact-form input.number').val();
-                var message = $('.message').val();
-                $.ajax({
-                    method: 'POST',
-                    dataType: "json",
-                    url: "https://formspree.io/hirenkeradiya@gmail.com",
-                    data: { name: name, number:number, email: email, message:message  },
-                })
-                .done(function(msg) {
-                    $('.contact-loader').hide();
-                    var newMessage = '<div class="alert alert-success alert-dismissible" style="padding-bottom:241px;"><button type="button" class="close" data-dismiss="alert"><span>&times;</span></button><strong>sucess!</strong> Mail Send Sucessfully</div>';
-
-                    $('.details').prepend(newMessage);
-                });
-            });
-        });
-    </script>
-    <script type="text/javascript">
-    (function() {
-        // create SVG circle overlay and append it to the preview element
-        function createCircleOverlay(previewEl) {
-            var dummy = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            dummy.setAttributeNS(null, 'version', '1.1');
-            dummy.setAttributeNS(null, 'width', '100%');
-            dummy.setAttributeNS(null, 'height', '100%');
-            dummy.setAttributeNS(null, 'class', 'overlay');
-            var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-            var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            circle.setAttributeNS(null, 'cx', 0);
-            circle.setAttributeNS(null, 'cy', 0);
-            circle.setAttributeNS(null, 'r', Math.sqrt(Math.pow(previewEl.offsetWidth,2) + Math.pow(previewEl.offsetHeight,2)));
-            dummy.appendChild(g);
-            g.appendChild(circle);
-            previewEl.appendChild(dummy);
-        }
-
-        new GridFx(document.querySelector('.grid'), {
-            onInit : function(instance) {
-                createCircleOverlay(instance.previewEl);
-            },
-            onResize : function(instance) {
-                instance.previewEl.querySelector('svg circle').setAttributeNS(null, 'r', Math.sqrt(Math.pow(instance.previewEl.offsetWidth,2) + Math.pow(instance.previewEl.offsetHeight,2)));
-            },
-            onOpenItem : function(instance, item) {
-                // item's image
-                var gridImg = item.querySelector('img'),
-                gridImgOffset = gridImg.getBoundingClientRect(),
-                win = {width: document.documentElement.clientWidth, height: window.innerHeight},
-                SVGCircleGroupEl = instance.previewEl.querySelector('svg > g'),
-                SVGCircleEl = SVGCircleGroupEl.querySelector('circle');
-
-                SVGCircleEl.setAttributeNS(null, 'r', Math.sqrt(Math.pow(instance.previewEl.offsetWidth,2) + Math.pow(instance.previewEl.offsetHeight,2)));
-                // set the transform for the SVG g node. This will animate the circle overlay. The origin of the circle depends on the position of the clicked item.
-                if( gridImgOffset.left + gridImg.offsetWidth/2 < win.width/2 ) {
-                    SVGCircleGroupEl.setAttributeNS(null, 'transform', 'translate(' + win.width + ', ' + (gridImgOffset.top + gridImg.offsetHeight/2 < win.height/2 ? win.height : 0) + ')');
-                }
-                else {
-                    SVGCircleGroupEl.setAttributeNS(null, 'transform', 'translate(0, ' + (gridImgOffset.top + gridImg.offsetHeight/2 < win.height/2 ? win.height : 0) + ')');
+    // Load Javascript files
+    var jsFiles = [{
+        index: 1,
+        type: "CDN",
+        src: "//code.jquery.com/jquery-3.1.1.min.js"
+    }, {
+        index: 2,
+        type: "CDN",
+        src: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    }, {
+        index: 3,
+        type: "CDN",
+        src: "//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
+    }, {
+        index: 4,
+        type: "CDN",
+        src: "//maps.googleapis.com/maps/api/js?key=AIzaSyDVOCH_gvMX1XMl_8h54zkuk-2crMClVNg"
+    }, {
+        index: 5,
+        type: "local",
+        src: "js/waterbubble.min.js"
+    }, {
+        index: 6,
+        type: "local",
+        src: "js/gallery.min.js"
+    }, {
+        index: 7,
+        type: "local",
+        src: "js/customize-google-map.js"
+    }, {
+        index: 8,
+        type: "local",
+        src: "js/custom.js"
+    }];
+    var loadjsFiles = new Promise(function(resolve, reject) {
+        var failed;
+        jsFiles.forEach(function(file) {
+            var script = document.createElement('script');
+            script.src = file.src;
+            script.onerror = function() {
+                failed = true;
+                reject(this);
+            }
+            script.async = false;
+            document.head.appendChild(script);
+            script.onload = script.onreadystatechange = function() {
+                if (!failed && (!this.readyState || this.readyState == "complete") && file.index == jsFiles.length ) {
+                    resolve(this);
                 }
             }
         });
-    })();
+    });
     </script>
 </body>
 </html>
